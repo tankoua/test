@@ -6,9 +6,14 @@ pipeline {
     }
     agent any
     stages {
+        stage ('Git Checkout') {
+            steps {
+               git branch: 'main', url: 'https://github.com/tankoua/test.git/'
+           }
+      }
         stage('Cloning our Git') {
             steps {
-                git 'https://github.com/tankoua/test.git/'
+                git 'https://github.com/tankoua/test.git/' 
             }
         }
         stage('Building our image') {
